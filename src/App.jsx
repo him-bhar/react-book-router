@@ -3,6 +3,7 @@ import {BooksProvider} from "./BooksContext.jsx";
 import Books from "./components/Books.jsx";
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import BookDetails from "./components/BookDetails.jsx";
+import NotFound from "./components/NotFound.jsx";
 
 function App() {
 
@@ -13,6 +14,8 @@ function App() {
                     <Route path="/" element={<Books />} />
                     <Route path="/books" element={<Navigate to="/" /> } />
                     <Route path="/books/:bookId" element={<BookDetails /> } />
+
+                    <Route path="*" element={ <NotFound /> } />
                 </Routes>
             </Router>
         </BooksProvider>
@@ -23,4 +26,6 @@ function App() {
 
 //3rd Route, get book by bookId, see the last uri, that's a dynamic paramter, :bookId, and same is leveraged in BookDetails.jsx,
 //const bookId = useParams(); it's a match by name
+
+//4th Route, * route is like a catch all condition, if none of route matched, then this route will trigger, which can point to a not found page
 export default App
