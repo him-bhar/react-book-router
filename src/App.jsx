@@ -4,6 +4,8 @@ import Books from "./components/Books.jsx";
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import BookDetails from "./components/BookDetails.jsx";
 import NotFound from "./components/NotFound.jsx";
+import SecretBooks from "./components/SecretBooks.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
                     <Route path="/books/:bookId" element={<BookDetails /> } />
 
                     <Route path="*" element={ <NotFound /> } />
+
+                    <Route path="/secret" element={<PrivateRoute Component={<SecretBooks />} /> } />
                 </Routes>
             </Router>
         </BooksProvider>
